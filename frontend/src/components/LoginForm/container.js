@@ -1,6 +1,6 @@
  import React, { Component } from "react";
  import LoginForm from "./presenter";
-
+ import PropTypes from "prop-types";
  //const Container = props => <LoginForm {...props} />
 
  class Container extends Component{
@@ -8,6 +8,11 @@
         username: "",
         password: ""
     } 
+
+    static propTypes = {
+        facebookLogin: PropTypes.func.isRequired,
+        usernameLogin: PropTypes.func.isRequired
+    };
     render(){
         const { username, password } = this.state ;
         return (
@@ -15,7 +20,9 @@
             handleSubmit={this._handleSubmit}
             handleInputChange={this._handleInputChange}
             usernameValue={username} 
-            passwordValue={password}/>
+            passwordValue={password}
+            handleFacebookLogin={this._handleFacebookLogin}
+        />
         )    
     }
 
@@ -30,8 +37,18 @@
         //console.log(this.state);
     };
     _handleSubmit = event => {
+        const { usernameLogin } = this.props;
+        const { username, password } = this.state;
         event.preventDefault();
-    }
+        usernameLogin(username, password);
+    };
+
+    _handleFacebookLogin = response => {
+        //console.log(response);
+        const { facebookLogin } = this.props ;
+        facebookLogin(response.accessToken);
+    };
+    
 
  }
 
