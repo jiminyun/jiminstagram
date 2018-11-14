@@ -63,18 +63,21 @@ DJANGO_APPS = [
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
-    'crispy_forms',
     'allauth', # registration
-    'allauth.socialaccount',
+    'allauth.account', # registration
+    'allauth.socialaccount', 
+    
     'allauth.socialaccount.providers.facebook',  # registration
     'rest_framework',  # REST framework
     'rest_framework.authtoken',
-    'corsheaders', # To accept requests from React
+    
     'taggit', # Tags for the photos
     'taggit_serializer',  # tag serializer
     'rest_auth',  # rest auth
     'rest_auth.registration',  # enable registration
+    'corsheaders', # To accept requests from React
 ]
+SITE_ID = 1
 
 LOCAL_APPS = [
     'jimistagram.users.apps.UsersAppConfig',
@@ -266,5 +269,14 @@ REST_FRAMEWORK = {
 REST_USE_JWT = True
 ACCOUNT_LOGOUT_ON_GET = True
 
+# Some really nice defaults
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 SOCIALACCOUNT_QUERY_EMAIL = True
+
+JWT_AUTH = {
+    'JWT_VERIFY_EXPIRATION' : False
+}
 
