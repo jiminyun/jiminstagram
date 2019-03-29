@@ -5,7 +5,7 @@ import "./styles.scss";
 
 const EditProfile = props => {
   if (props.loading) return <LoadingProfile />;
-  else if (props.myInfo) return <RenderEditProfile {...props} />;
+  else return <RenderEditProfile {...props} />;
 };
 
 const LoadingProfile = props => (
@@ -25,16 +25,16 @@ const RenderEditProfile = props => (
           <div className="field">
             <aside className="title">
               <label>
-                <img src={props.myInfo.profile_image} alt="profile_img" />
+                <img src={props.profile_image} alt="profile_img" />
               </label>
             </aside>
-            <div class="inputs">Change Profile Photo</div>
+            <div className="inputs">Change Profile Photo</div>
           </div>
           <div className="field">
             <aside className="title">
               <label>Name</label>
             </aside>
-            <div class="inputs">
+            <div className="inputs">
               <input
                 type="text"
                 placeholder="name"
@@ -49,13 +49,13 @@ const RenderEditProfile = props => (
             <aside className="title">
               <label>UserName</label>
             </aside>
-            <div class="inputs">
+            <div className="inputs">
               <input
                 type="text"
                 placeholder="username"
                 name="username"
                 className="input"
-                value={props.myInfo.username}
+                value={props.username}
                 onChange={props.handleInputChange}
               />
             </div>
@@ -64,13 +64,13 @@ const RenderEditProfile = props => (
             <aside className="title">
               <label>Website</label>
             </aside>
-            <div class="inputs">
+            <div className="inputs">
               <input
                 type="text"
                 placeholder="website"
                 name="website"
                 className="input"
-                value={props.myInfo.website}
+                value={props.website}
                 onChange={props.handleInputChange}
               />
             </div>
@@ -79,13 +79,13 @@ const RenderEditProfile = props => (
             <aside className="title">
               <label>Bio</label>
             </aside>
-            <div class="inputs">
+            <div className="inputs">
               <input
                 type="text"
                 placeholder="bio"
                 name="bio"
                 className="input"
-                value={props.myInfo.bio}
+                value={props.bio}
                 onChange={props.handleInputChange}
               />
             </div>
@@ -94,32 +94,18 @@ const RenderEditProfile = props => (
             <aside className="title">
               <label>Email</label>
             </aside>
-            <div class="inputs">
+            <div className="inputs">
               <input
                 type="email"
                 placeholder="email"
                 name="email"
                 className="input"
-                value={props.myInfo.email}
+                value={props.email}
                 onChange={props.handleInputChange}
               />
             </div>
           </div>
-          <div className="field">
-            <aside className="title">
-              <label>Gender</label>
-            </aside>
-            <div class="inputs">
-              <input
-                type="text"
-                placeholder="gender"
-                name="gender"
-                className="input"
-                value={props.myInfo.gender}
-                onChange={props.handleInputChange}
-              />
-            </div>
-          </div>
+
           <div className="field">
             <input type="submit" value="submit" className="btn" />
           </div>
@@ -135,7 +121,7 @@ EditProfile.propTypes = {
   username: propTypes.string.isRequired,
   website: propTypes.string.isRequired,
   bio: propTypes.string.isRequired,
-  email: propTypes.string.isRequired,
-  gender: propTypes.string.isRequired
+  email: propTypes.string.isRequired
 };
+
 export default EditProfile;

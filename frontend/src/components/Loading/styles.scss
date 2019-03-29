@@ -1,6 +1,6 @@
 @import "../../config/_variables";
 .container {
-  background-color: #ffffff;
+  //background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -8,8 +8,8 @@
   ///border: 1px solid black;
   width: 500px;
   .spinner {
-    height: 32px;
-    animation: spinner 1.2s steps(12) infinite;
+    height: 50px;
+    //animation: spinner 5.2s steps(6) infinite;
   }
 }
 @keyframes spinner {

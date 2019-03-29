@@ -19,7 +19,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'username',
             'name',
             'post_count',
-            'images'
+            'images',
+            'website',
+            'bio',
+            'email'
+
         )
 
 

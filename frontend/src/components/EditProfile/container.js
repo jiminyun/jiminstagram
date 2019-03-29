@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 class Container extends Component {
   state = {
     loading: true,
+    profile_image: "",
     name: "",
     username: "",
     website: "",
@@ -12,28 +13,42 @@ class Container extends Component {
     email: "",
     gender: ""
   };
+
   static propTypes = {
     getMyProfile: PropTypes.func.isRequired,
     upateMyProfile: PropTypes.func.isRequired
   };
 
   componentDidMount() {
+    console.log("componentDidMount");
     const { getMyProfile } = this.props;
-
-    if (!this.props.myInfo) {
-      getMyProfile();
-    } else {
-      this.setState({
-        loading: false
-      });
-    }
+    getMyProfile();
   }
 
   componentWillReceiveProps = nextProps => {
+    console.log("componentWillReceiveProps");
+    const {
+      name,
+      username,
+      website,
+      bio,
+      email,
+      gender,
+      profile_image
+    } = nextProps.myInfo;
     if (nextProps.myInfo) {
       this.setState({
-        loading: false
+        loading: false,
+        name,
+        username,
+        website,
+        bio,
+        email,
+        gender,
+        profile_image
       });
+    } else {
+      console.log("here");
     }
   };
 
@@ -44,26 +59,20 @@ class Container extends Component {
     upateMyProfile(name, username, website, bio, email, gender);
   };
 
-  _handleNameChange(e) {
-    this.setState({ name: e.target.value });
-  }
-
   _handleInputChange = event => {
     const {
       target: { value, name }
     } = event;
     this.setState({
-      name: value
+      [name]: value
     });
-    console.log(this.state);
   };
 
   render() {
-    const { myInfo } = this.props;
+    console.log("render", this.state);
     return (
       <EditProfile
         {...this.state}
-        myInfo={myInfo}
         handleInputChange={this._handleInputChange}
         handleSubmit={this._handleSubmit}
         handleNameChange={this._handleNameChange}
