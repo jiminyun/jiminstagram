@@ -1,0 +1,37 @@
+@import "../../config/_variables";
+._container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  min-height: 50px;
+  border-bottom: 1px solid $light-grey;
+  .column {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    .user {
+      min-width: 280px;
+      margin-left: 10px;
+
+      .username {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .name {
+        color: $dark-grey;
+      }
+    }
+    .avatar {
+      width: 30px;
+      border-radius: 30%;
+    }
+  }
+  .following_btn {
+    @include whiteButton();
+  }
+  .follow_btn {
+    @include blueButton();
+  }
+}

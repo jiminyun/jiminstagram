@@ -1,0 +1,75 @@
+@import "../../config/_variables";
+.editProfile {
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 130px;
+
+  .content {
+    @include boxBorder(yes);
+    width: 100%;
+    max-width: $max-page-width;
+    background-color: white;
+    display: flex;
+
+    .fisrtColumn {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      border-right: 1px solid $light-grey;
+      padding-top: 30px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .secondColumn {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+
+      width: 70%;
+
+      .form {
+        width: 100%;
+
+        .field {
+          display: flex;
+          padding: 10px;
+          //width: 100%;
+          justify-content: center;
+          .title {
+            display: flex;
+            justify-content: flex-end;
+            width: 10%;
+            margin-left: 40px;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 18px;
+          }
+          .inputs {
+            width: 80%;
+            .input {
+              width: 90%;
+              margin-right: 40px;
+              background: 0 0;
+              border: 1px solid #efefef;
+              box-sizing: border-box;
+              height: 32px;
+              font-size: 16px;
+              color: #262626;
+            }
+          }
+        }
+        .btn {
+          width: 200px;
+          display: flex;
+          height: 30px;
+          justify-content: center;
+          @include blueButton();
+        }
+      }
+    }
+  }
+}

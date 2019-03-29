@@ -10,7 +10,6 @@ class Container extends Component {
     return <Auth action={action} changeAction={this._changeAction} />;
   }
 
-
   _changeAction = () => {
     this.setState(prevState => {
       const { action } = prevState;
@@ -26,4 +25,4 @@ class Container extends Component {
     });
   };
 }
- export default Container;
+export default Container;

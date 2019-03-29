@@ -1,0 +1,16 @@
+@import "../../config/_variables";
+
+.nt_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  overflow: auto;
+  top: 60px;
+  right: 130px;
+  width: 450px;
+  height: 300px;
+  border: 1px solid $light-grey;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.0975);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.0975);
+}

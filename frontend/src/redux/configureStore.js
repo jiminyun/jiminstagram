@@ -5,6 +5,8 @@ import { i18nState } from "redux-i18n";
 import createHistory from "history/createBrowserHistory";
 import thunk from "redux-thunk";
 import user from "redux/modules/user";
+import photos from "redux/modules/photos";
+import notification from "redux/modules/notification";
 
 const env = process.env.NODE_ENV;
 
@@ -17,8 +19,10 @@ if (env === "development") {
   middlewares.push(logger);
 }
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
   user,
+  photos,
+  notification,
   routing: routerReducer,
   i18nState
 });
@@ -27,9 +31,13 @@ let store;
 
 if (env === "development") {
   store = initialState =>
-    createStore(reducer, composeWithDevTools(applyMiddleware(...middlewares)));
+    createStore(
+      rootReducer,
+      composeWithDevTools(applyMiddleware(...middlewares))
+    );
 } else {
-  store = initialState => createStore(reducer, applyMiddleware(...middlewares));
+  store = initialState =>
+    createStore(rootReducer, applyMiddleware(...middlewares));
 }
 
 export { history };

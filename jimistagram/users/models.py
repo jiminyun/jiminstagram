@@ -21,8 +21,8 @@ class User(AbstractUser):
     bio = models.TextField(null=True)
     phone = models.CharField(max_length=140, null=True)
     gender = models.CharField(max_length=80, choices=GENDER_CHOICES, null=True)
-    followers = models.ManyToManyField("self")
-    following = models.ManyToManyField("self")
+    followers = models.ManyToManyField("self", blank=True, symmetrical=False, related_name="reverse_following")
+    following = models.ManyToManyField("self", blank=True, symmetrical=False, related_name="reverse_followers")
 
     def __str__(self):
         return self.username
@@ -37,4 +37,4 @@ class User(AbstractUser):
 
     @property
     def following_count(self):
-        return self.following.all().count() 
+        return self.following.all().count()

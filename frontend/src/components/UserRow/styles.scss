@@ -1,0 +1,66 @@
+@import "../../config/_variables";
+.vertical {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  //border-bottom: 1px solid $light-grey;
+  .column {
+    display: flex;
+    align-items: center;
+    .user {
+      margin-left: 10px;
+      .username {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .name {
+        color: $dark-grey;
+      }
+    }
+    .avatar {
+      width: 30px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  margin: 0 10px;
+  @include boxBorder(yes);
+  .column {
+    .bigAvatar {
+      width: 78px;
+      border-radius: 50%;
+    }
+    .user {
+      text-align: center;
+      margin: 0;
+      .username {
+        margin: 7px;
+        font-weight: 600;
+        display: block;
+      }
+    }
+    .button {
+      @include blueButton();
+      margin-top: 15px;
+      min-width: 95px;
+    }
+  }
+}
+
+.follow_btn {
+  @include blueButton();
+}
+.following_btn {
+  @include whiteButton();
+}

@@ -26,7 +26,7 @@ TIME_ZONE = 'UTC'
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'en-us'
 # https://docs.djangoproject.com/en/dev/ref/settings/#site-id
-SITE_ID = 1
+SITE_ID = 2
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
 USE_I18N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
@@ -59,32 +59,31 @@ DJANGO_APPS = [
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.humanize', # Handy template tags
+    'django.contrib.humanize',  # Handy template tags
     'django.contrib.admin',
 ]
 THIRD_PARTY_APPS = [
-    'allauth', # registration
-    'allauth.account', # registration
-    'allauth.socialaccount', 
-    
+    'allauth',  # registration
+    'allauth.account',  # registration
+    'allauth.socialaccount',
+
     'allauth.socialaccount.providers.facebook',  # registration
     'rest_framework',  # REST framework
     'rest_framework.authtoken',
-    
-    'taggit', # Tags for the photos
+
+    'taggit',  # Tags for the photos
     'taggit_serializer',  # tag serializer
     'rest_auth',  # rest auth
     'rest_auth.registration',  # enable registration
-    'corsheaders', # To accept requests from React
+    'corsheaders',  # To accept requests from React
 ]
-SITE_ID = 1
 
 LOCAL_APPS = [
     'jimistagram.users.apps.UsersAppConfig',
-    'jimistagram.images.apps.ImagesConfig', #image app
-    'jimistagram.notifications.apps.NotificationsConfig' #notification app
-    
-    
+    'jimistagram.images.apps.ImagesConfig',  # image app
+    'jimistagram.notifications.apps.NotificationsConfig'  # notification app
+
+
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -269,14 +268,8 @@ REST_FRAMEWORK = {
 REST_USE_JWT = True
 ACCOUNT_LOGOUT_ON_GET = True
 
-# Some really nice defaults
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-
 SOCIALACCOUNT_QUERY_EMAIL = True
 
 JWT_AUTH = {
-    'JWT_VERIFY_EXPIRATION' : False
+    'JWT_VERIFY_EXPIRATION': False
 }
-

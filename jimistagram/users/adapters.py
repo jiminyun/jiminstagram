@@ -19,5 +19,4 @@ class SocialAccountAdapter(DefaultSocialAccountAdapter):
 
     def pre_social_login(self, request, sociallogin):
         print(dir(sociallogin))
-        print(sociallogin.email_addresses, sociallogin.account)
-    
+        #print(sociallogin.email_addresses, sociallogin.account)
