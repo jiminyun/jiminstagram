@@ -217,8 +217,6 @@ function applyLikePhoto(state, action) {
   const { photoId } = action;
   const { feed } = state;
 
-  applyLikePhotoById(state, action);
-
   const updateFeed = feed.map(photo => {
     if (photo.id === photoId) {
       return { ...photo, is_liked: true, like_count: photo.like_count + 1 };
@@ -229,18 +227,12 @@ function applyLikePhoto(state, action) {
   return {
     ...state,
     feed: updateFeed
-    //feedDetail: { ...feedDetail },
-    //is_liked: true,
-    //like_count: current_like_count + 1
   };
 }
 
 function applyUnlikePhoto(state, action) {
   const { photoId } = action;
-  const { feed, feedDetail } = state;
-  const {
-    feedDetail: { like_count: current_like_count }
-  } = state;
+  const { feed } = state;
 
   const updateFeed = feed.map(photo => {
     if (photo.id === photoId) {
@@ -250,10 +242,7 @@ function applyUnlikePhoto(state, action) {
   });
   return {
     ...state,
-    feed: updateFeed,
-    feedDetail: { ...feedDetail },
-    is_liked: false,
-    like_count: current_like_count - 1
+    feed: updateFeed
   };
 }
 
