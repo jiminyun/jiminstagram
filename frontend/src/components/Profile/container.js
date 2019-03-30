@@ -10,15 +10,15 @@ class Container extends Component {
     isShowFeedDetail: false
   };
   static propTypes = {
-    getMyProfile: PropTypes.func.isRequired,
+    getData: PropTypes.func.isRequired,
     handleLogout: PropTypes.func.isRequired
   };
 
   componentDidMount() {
-    const { getMyProfile } = this.props;
+    const { getData } = this.props;
 
     if (!this.props.myInfo) {
-      getMyProfile();
+      getData();
     } else {
       this.setState({
         loading: false

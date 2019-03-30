@@ -9,7 +9,7 @@ import CommentBox from "components/CommentBox";
 const FeedDeatil = props => {
   if (props.loading) {
     return <LoadingFeed />;
-  } else if (props.feedDetail) {
+  } else if (props.selectedFeed) {
     return <RenderFeedDeatil {...props} />;
   }
 };
@@ -22,60 +22,65 @@ const LoadingFeed = props => (
 
 const RenderFeedDeatil = props => (
   <div className="feed_dt_container">
-    <div className="closeBtn" onClick={props.closeFeedDetail}>
-      <span>close X</span>
-    </div>
-    <div className="box">
-      <div className="column">
-        <div className="img">
-          <img src={props.feedDetail.file} alt="feedImage" />
+    {props.selectedFeed.map(feed => (
+      <div key={feed.id}>
+        <div className="closeBtn" onClick={props.closeFeedDetail}>
+          <span>close X</span>
         </div>
-      </div>
-      <div className="column">
-        <div className="content">
-          <div class="first_row">
-            <img
-              className="profileImg"
-              src={props.feedDetail.creator.profile_image}
-              alt="profileImg"
-            />
-            <p className="username">
-              {props.feedDetail.creator.username}
-              <br />
-              {props.feedDetail.location}
-            </p>
-          </div>
-          <div class="second_row">
-            <ul>
-              {props.feedDetail.tags.map(tag => (
-                <li className="tag" key={tag.id}>
-                  #{tag}
-                </li>
-              ))}
-            </ul>
-            <div class="comments">
-              <PhotoComments
-                caption={props.feedDetail.caption}
-                creator={props.feedDetail.creator.username}
-                comments={props.feedDetail.comments}
-              />
+
+        <div className="box">
+          <div className="column">
+            <div className="img">
+              <img src={feed.file} alt="feedImage" />
             </div>
           </div>
-          <div class="third_row">
-            <div className="meta">
-              <PhotoActions
-                number={props.feedDetail.like_count}
-                isLiked={props.feedDetail.is_liked}
-                photoId={props.feedDetail.id}
-                openLikes={props.openLikes}
-              />
-              <TimeStamp time={props.feedDetail.natural_time} />
-              <CommentBox photoId={props.feedDetail.id} />
+          <div className="column">
+            <div className="content">
+              <div className="first_row">
+                <img
+                  className="profileImg"
+                  src={feed.creator.profile_image}
+                  alt="profileImg"
+                />
+                <p className="username">
+                  {feed.creator.username}
+                  <br />
+                  {feed.location}
+                </p>
+              </div>
+              <div className="second_row">
+                <ul>
+                  {feed.tags.map(tag => (
+                    <li className="tag" key={tag}>
+                      #{tag}
+                    </li>
+                  ))}
+                </ul>
+                <div className="comments">
+                  <PhotoComments
+                    caption={feed.caption}
+                    creator={feed.creator.username}
+                    comments={feed.comments}
+                  />
+                </div>
+              </div>
+              <div className="third_row">
+                <div className="meta">
+                  <PhotoActions
+                    number={feed.like_count}
+                    isLiked={feed.is_liked}
+                    photoId={feed.id}
+                    openLikes={props.openLikes}
+                  />
+                  <TimeStamp time={feed.natural_time} />
+                  <CommentBox photoId={feed.id} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    ))}
   </div>
 );
 

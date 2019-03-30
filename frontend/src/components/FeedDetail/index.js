@@ -4,10 +4,14 @@ import { actionCreators as photoActions } from "redux/modules/photos";
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    photos: { feedDetail }
+    photos: { currentPostId, feed }
   } = state;
+
+  const selectedFeed = feed.filter(photo => photo.id === currentPostId);
+  console.log("mapStateToProps");
+
   return {
-    feedDetail
+    selectedFeed
   };
 };
 

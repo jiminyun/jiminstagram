@@ -7,19 +7,19 @@ class Container extends Component {
   };
 
   componentDidMount() {
+    console.log("componentDidMount");
+
     const { getFeedDetail } = this.props;
-    if (!this.props.feedDetail) {
-      getFeedDetail();
-    } else {
-      getFeedDetail();
-      this.setState({
-        loading: false
-      });
-    }
+
+    getFeedDetail();
+
+    //console.log(selectedFeed);
   }
 
   componentWillReceiveProps = nextProps => {
-    if (nextProps.feedDetail) {
+    console.log("componentWillReceiveProps");
+    console.log(nextProps);
+    if (nextProps.selectedFeed) {
       this.setState({
         loading: false
       });
@@ -27,11 +27,16 @@ class Container extends Component {
   };
 
   render() {
-    const { feedDetail, closeFeedDetail } = this.props;
+    const { selectedFeed, closeFeedDetail } = this.props;
+    console.log("render", selectedFeed, "loading", this.state.loading);
+
+    console.log("creator", selectedFeed.creator);
+    console.log("file", selectedFeed.file);
+
     return (
       <FeedDetail
         {...this.state}
-        feedDetail={feedDetail}
+        selectedFeed={selectedFeed}
         closeFeedDetail={closeFeedDetail}
       />
     );

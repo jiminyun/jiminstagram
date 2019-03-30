@@ -263,7 +263,7 @@ function applyAddComment(state, action) {
 
 function applySetFeedDetail(state, action) {
   const { feedDetail } = action;
-  return { ...state, currentPostId: feedDetail.id, feedDetail };
+  return { ...state, currentPostId: feedDetail.id };
 }
 
 // expoerts

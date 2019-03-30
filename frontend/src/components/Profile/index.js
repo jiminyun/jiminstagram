@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   const {
     user: { myInfo }
   } = state;
-  
+
   return {
     myInfo
   };
@@ -15,8 +15,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getMyProfile: () => {
+    getData: () => {
       dispatch(userActions.getMyProfile());
+      dispatch(photoActions.getFeed());
     },
     handleLogout: () => {
       dispatch(userActions.logout());
@@ -27,7 +28,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     getFollowings: username => {
       dispatch(userActions.getFollowings(username));
     }
-    
   };
 };
 export default connect(

@@ -22,8 +22,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'images',
             'website',
             'bio',
-            'email'
-
+            'email',
+            'following'
         )
 
 
