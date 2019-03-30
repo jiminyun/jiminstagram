@@ -30,7 +30,7 @@ const PrivateRoutes = props => (
     <Route path="/explore" component={Explore} />
     <Route path="/notification" component={Notifications} />
     <Route path="/search/:searchTerm" component={Search} />
-    <Route path="/profile" component={Profile} />
+    <Route path="/profile/:username" component={Profile} />
     <Route path="/accounts/edit/" component={EditProfile} />
     <Route path="/photo" component={PhotoAdd} />
   </Switch>

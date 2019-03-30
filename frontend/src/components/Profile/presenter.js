@@ -76,7 +76,7 @@ const RenderPhotoDisplay = props =>
   props.photos.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
 
 const LoadingProfile = props => (
-  <div className="profile">
+  <div className="profile_loading">
     <Loading />
   </div>
 );

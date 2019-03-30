@@ -9,10 +9,12 @@ class Container extends Component {
   };
 
   static propTypes = {
-    goToSearch: PropTypes.func.isRequired
+    goToSearch: PropTypes.func.isRequired,
+    username: PropTypes.string.isRequired
   };
   render() {
     const { term, showNotification } = this.state;
+    const { username } = this.props;
     return (
       <Navigation
         onSubmit={this._onSubmit}
@@ -20,6 +22,7 @@ class Container extends Component {
         openNotification={this._openNotification}
         showNotification={showNotification}
         value={term}
+        username={username}
       />
     );
   }

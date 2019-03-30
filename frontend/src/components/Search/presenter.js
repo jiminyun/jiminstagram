@@ -39,7 +39,7 @@ const Search = props => {
 
 const RenderUserSearch = props =>
   props.userList.map(user => (
-    <UserRow vertical={true} user={user} key={user.id} />
+    <UserRow big={true} horizontal={true} user={user} key={user.id} />
   ));
 
 const RenderImageSearch = props =>

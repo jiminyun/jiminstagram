@@ -4,6 +4,7 @@ from jimistagram.users import models as user_models
 from taggit_serializer.serializers import (TagListSerializerField,
                                            TaggitSerializer)
 
+
 class SmallImageSerializer(serializers.ModelSerializer):
 
     """ Used for the notifications """
@@ -12,6 +13,7 @@ class SmallImageSerializer(serializers.ModelSerializer):
         fields = (
             'file',
         )
+
 
 class CountImageSerializer(serializers.ModelSerializer):
 
@@ -24,6 +26,7 @@ class CountImageSerializer(serializers.ModelSerializer):
             'comment_count'
         )
 
+
 class FeedUserSeralizer(serializers.ModelSerializer):
 
     class Meta:
@@ -32,6 +35,7 @@ class FeedUserSeralizer(serializers.ModelSerializer):
             'username',
             'profile_image'
         )
+
 
 class CommentSerializer(serializers.ModelSerializer):
 
@@ -46,11 +50,13 @@ class CommentSerializer(serializers.ModelSerializer):
             'image'
         )
 
+
 class LikeSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
         model = models.Like
         fields = '__all__'
+
 
 class FeedUserSeralizer(serializers.ModelSerializer):
 
@@ -61,8 +67,9 @@ class FeedUserSeralizer(serializers.ModelSerializer):
             'profile_image'
         )
 
+
 class ImageSerializer(TaggitSerializer, serializers.ModelSerializer):
-    
+
     comments = CommentSerializer(many=True)
     creator = FeedUserSeralizer()
     tags = TagListSerializerField()
@@ -76,7 +83,7 @@ class ImageSerializer(TaggitSerializer, serializers.ModelSerializer):
             'location',
             'caption',
             'comments',
-            'like_count', 
+            'like_count',
             'creator',
             'tags',
             'created_at',
@@ -93,16 +100,16 @@ class ImageSerializer(TaggitSerializer, serializers.ModelSerializer):
             except models.Like.DoesNotExist:
                 return False
         return False
- 
 
-class InputImageSerializer(serializers.ModelSerializer):
+
+class InputImageSerializer(TaggitSerializer, serializers.ModelSerializer):
+    tags = TagListSerializerField()
 
     class Meta:
         model = models.Image
         fields = (
             'file',
             'location',
-            'caption'
-        )        
-
-
+            'caption',
+            'tags'
+        )

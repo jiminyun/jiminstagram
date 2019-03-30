@@ -14,9 +14,15 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  const {
+    match: {
+      params: { username }
+    }
+  } = ownProps;
+
   return {
     getData: () => {
-      dispatch(userActions.getMyProfile());
+      dispatch(userActions.getMyProfile(username));
       dispatch(photoActions.getFeed());
     },
     handleLogout: () => {

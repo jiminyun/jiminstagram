@@ -16,15 +16,16 @@ class Container extends Component {
 
   componentDidMount() {
     const { getData } = this.props;
+    getData();
+  }
 
-    if (!this.props.myInfo) {
+  componentDidUpdate(prevProps, prevState) {
+    const { getData } = this.props;
+    if (prevProps.match.params.username !== this.props.match.params.username) {
       getData();
-    } else {
-      this.setState({
-        loading: false
-      });
     }
   }
+
   componentWillReceiveProps = nextProps => {
     if (nextProps.myInfo) {
       this.setState({

@@ -298,8 +298,9 @@ function searchImages(token, searchTerm) {
 function getMyProfile(username) {
   return (dispatch, getState) => {
     const {
-      user: { token, username }
+      user: { token }
     } = getState();
+
     fetch(`/users/${username}/`, {
       headers: {
         Authorization: `JWT ${token}`
