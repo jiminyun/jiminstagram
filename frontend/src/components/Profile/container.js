@@ -69,7 +69,8 @@ class Container extends Component {
 
   render() {
     const { myInfo, handleLogout } = this.props;
-    //console.log(myInfo, this.state);
+    console.log("render", myInfo, this.state);
+    //console.log(myInfo.username);
     return (
       <Profile
         {...this.state}

@@ -30,9 +30,9 @@ class Container extends Component {
     const { selectedFeed, closeFeedDetail } = this.props;
     console.log("render", selectedFeed, "loading", this.state.loading);
 
-    console.log("creator", selectedFeed.creator);
-    console.log("file", selectedFeed.file);
-
+    //console.log("creator", selectedFeed.creator);
+    //console.log("file", selectedFeed.file);
+    //console.log("...", ...selectedFeed);
     return (
       <FeedDetail
         {...this.state}

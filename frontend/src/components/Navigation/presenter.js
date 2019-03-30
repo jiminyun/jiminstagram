@@ -27,6 +27,15 @@ const Navigation = (props, context) => (
         </div>
         <div className="column">
           <div className="navIcon">
+            <Link to="/photo">
+              <Ionicon
+                icon="ios-add-circle-outline"
+                fontSize="28px"
+                color="black"
+              />
+            </Link>
+          </div>
+          <div className="navIcon">
             <Link to="/explore">
               <Ionicon
                 icon="ios-compass-outline"

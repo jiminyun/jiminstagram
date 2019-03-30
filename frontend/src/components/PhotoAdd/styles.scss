@@ -1,0 +1,63 @@
+@import "../../config/_variables";
+.photo-container {
+  @include boxBorder(yes);
+  width: 100%;
+  max-width: $max-card-width;
+  margin: 0 auto;
+  margin-top: 100px;
+  justify-content: center;
+  @include breakpoint("phone") {
+    background-color: transparent;
+    border: 0;
+    margin-bottom: 30px;
+  }
+  .preview-warp {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    .preview {
+      border: 1px solid $dark-grey;
+      width: 90%;
+      min-height: 300px;
+      background-color: lightgrey;
+      .fileText {
+        display: inline-block;
+        text-decoration-line: underline;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint("phone") {
+      border-top: 1px solid $dark-grey;
+    }
+    .row {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin-bottom: 20px;
+      .input {
+        border: 1px solid #efefef;
+        box-sizing: border-box;
+        height: 32px;
+        font-size: 16px;
+        color: #262626;
+        &:focus {
+          outline: none;
+          border: 1px solid #b2b2b2;
+        }
+      }
+      .button {
+        @include blueButton();
+      }
+    }
+  }
+}

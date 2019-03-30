@@ -1,5 +1,6 @@
 // imports
 import { actionCreators as userActions } from "redux/modules/user";
+import uuidv1 from "uuid/v1";
 // actions
 
 const SET_FEED = "SET_FEED";
@@ -8,7 +9,7 @@ const UNLIKE_PHOTO = "UNLIKE_PHOTO";
 const ADD_COMMENT = "ADD_COMMENT";
 const DELETE_COMMENT = "DELETE_COMMENT";
 const SET_FEED_DETAIL = "SET_FEED_DETAIL";
-
+const ADD_PHOTO = "ADD_PHOTO";
 // action creators
 function addComment(photoId, comment) {
   return {
@@ -50,6 +51,13 @@ function setFeedDetail(feedDetail) {
   return {
     type: SET_FEED_DETAIL,
     feedDetail
+  };
+}
+
+function addPhoto(newPhoto) {
+  return {
+    type: ADD_PHOTO,
+    newPhoto
   };
 }
 
@@ -166,6 +174,35 @@ function getFeedDetail(photoId) {
   };
 }
 
+function saveFeed(photoObj, history) {
+  const arrTags = photoObj.tags.replace(/(\s*)/g, "").split("#");
+  const formData = new FormData();
+  formData.append("file", photoObj.file, `${uuidv1()}.jpg`);
+  formData.append("location", photoObj.location);
+  formData.append("caption", photoObj.caption);
+  formData.append("tags", JSON.stringify(arrTags.slice(1)));
+
+  return (dispatch, getState) => {
+    const {
+      user: { token }
+    } = getState();
+    fetch(`/images/`, {
+      method: "POST",
+      headers: {
+        Authorization: `JWT ${token}`
+      },
+      body: formData
+    })
+      .then(response => {
+        if (response.status === 401) {
+          dispatch(userActions.logout());
+        }
+        history.push("/");
+      })
+      .catch(err => console.log("error", err));
+  };
+}
+
 // initial state
 
 const initialState = {};
@@ -184,6 +221,8 @@ function reducer(state = initialState, action) {
       return applyAddComment(state, action);
     case SET_FEED_DETAIL:
       return applySetFeedDetail(state, action);
+    case ADD_PHOTO:
+      return applyAddPhoto(state, action);
     default:
       return state;
   }
@@ -266,10 +305,21 @@ function applySetFeedDetail(state, action) {
   return { ...state, currentPostId: feedDetail.id };
 }
 
+function applyAddPhoto(state, action) {
+  const { newPhoto } = action;
+  const { feed } = state;
+
+  return {
+    ...state,
+    feed: [newPhoto].concat(feed)
+  };
+}
+
 // expoerts
 
 const actionCreators = {
   getFeed,
+  saveFeed,
   likePhoto,
   unlikePhoto,
   commentPhoto,

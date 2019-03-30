@@ -27,7 +27,6 @@ const RenderFeedDeatil = props => (
         <div className="closeBtn" onClick={props.closeFeedDetail}>
           <span>close X</span>
         </div>
-
         <div className="box">
           <div className="column">
             <div className="img">

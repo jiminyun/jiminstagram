@@ -12,6 +12,7 @@ import Notifications from "components/Notifications";
 import Profile from "components/Profile";
 import { Redirect } from "react-router-dom";
 import EditProfile from "components/EditProfile";
+import PhotoAdd from "components/PhotoAdd";
 
 const App = props => [
   props.isLoggedIn ? <Navigation key={1} /> : <Redirect to="/" />,
@@ -31,6 +32,7 @@ const PrivateRoutes = props => (
     <Route path="/search/:searchTerm" component={Search} />
     <Route path="/profile" component={Profile} />
     <Route path="/accounts/edit/" component={EditProfile} />
+    <Route path="/photo" component={PhotoAdd} />
   </Switch>
 );
 
