@@ -7,8 +7,30 @@ class Container extends Component {
     loading: true,
     isShowFollowers: false,
     isShowFollowings: false,
-    isShowFeedDetail: false
+    isShowPhotoDetail: false,
+    IsME: false,
+    photoId: null
   };
+
+  render() {
+    const { myInfo, handleLogout } = this.props;
+    console.log("render", myInfo, this.state);
+    //console.log(myInfo.username);
+    return (
+      <Profile
+        {...this.state}
+        myInfo={myInfo}
+        handleLogout={handleLogout}
+        seeFollowers={this._seeFollowers}
+        seeFollowings={this._seeFollowings}
+        closeFollowings={this._closeFollowings}
+        closeFollowers={this._closeFollowers}
+        openPhotoDetail={this._openPhotoDetail}
+        closePhotoDetail={this._closePhotoDetail}
+      />
+    );
+  }
+
   static propTypes = {
     getData: PropTypes.func.isRequired,
     handleLogout: PropTypes.func.isRequired
@@ -31,6 +53,7 @@ class Container extends Component {
       this.setState({
         loading: false
       });
+      this._IsME();
     }
   };
 
@@ -68,22 +91,32 @@ class Container extends Component {
     });
   };
 
-  render() {
-    const { myInfo, handleLogout } = this.props;
-    console.log("render", myInfo, this.state);
-    //console.log(myInfo.username);
-    return (
-      <Profile
-        {...this.state}
-        myInfo={myInfo}
-        handleLogout={handleLogout}
-        seeFollowers={this._seeFollowers}
-        seeFollowings={this._seeFollowings}
-        closeFollowings={this._closeFollowings}
-        closeFollowers={this._closeFollowers}
-      />
-    );
-  }
+  _IsME = () => {
+    const {
+      match: {
+        params: { username }
+      },
+      loggedUser
+    } = this.props;
+
+    if (username === loggedUser) {
+      this.setState({
+        IsME: true
+      });
+    }
+  };
+
+  _openPhotoDetail = photoId => {
+    this.setState({
+      isShowPhotoDetail: true,
+      photoId
+    });
+  };
+  _closePhotoDetail = () => {
+    this.setState({
+      isShowPhotoDetail: false
+    });
+  };
 }
 
 export default Container;

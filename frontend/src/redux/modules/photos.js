@@ -159,17 +159,13 @@ function getFeedDetail(photoId) {
     const {
       user: { token }
     } = getState();
-    fetch(`/images/${photoId}/`, {
+    fetch(`/images/${photoId}`, {
       headers: {
-        Authorization: `JWT ${token}`
+        Authorization: `JWT ${token}`,
+        "Content-type": "application/json"
       }
     })
-      .then(response => {
-        if (response.status === 401) {
-          dispatch(userActions.logout());
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(json => dispatch(setFeedDetail(json)));
   };
 }
@@ -234,21 +230,6 @@ function applySetFeed(state, action) {
   return {
     ...state,
     feed
-  };
-}
-
-function applyLikePhotoById(state, action) {
-  const { feedDetail } = state;
-
-  const {
-    feedDetail: { like_count: current_like_count }
-  } = state;
-
-  return {
-    ...state,
-    feedDetail: { ...feedDetail },
-    is_liked: true,
-    like_count: current_like_count + 1
   };
 }
 

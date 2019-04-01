@@ -5,11 +5,12 @@ import Container from "./container";
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    user: { myInfo }
+    user: { myInfo, username: loggedUser }
   } = state;
 
   return {
-    myInfo
+    myInfo,
+    loggedUser
   };
 };
 

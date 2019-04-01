@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Loading from "components/Loading";
 import PhotoDisplay from "components/PhotoDisplay";
 import UserList from "components/UserList";
+import PhotoDetail from "components/PhotoDetail";
 import "./styles.scss";
 
 const Profile = props => {
@@ -32,7 +33,7 @@ const RenderProfile = props => (
           <span className="username">{props.myInfo.username}</span>
           <span>
             <Link to="/accounts/edit/">
-              <button className="btn"> Edit Profile </button>
+              {props.IsME && <button className="btn">Edit Profile </button>}
             </Link>
             <button className="btn" onClick={props.handleLogout}>
               Logout
@@ -56,28 +57,51 @@ const RenderProfile = props => (
         </div>
       </div>
     </div>
-    <div className="photo_container">
-      <div className="content">
+    <div className="photos">
+      <div className="photo-grid">
         {props.myInfo.images.length > 0 && (
-          <RenderPhotoDisplay photos={props.myInfo.images} />
+          <RenderPhotoDisplay
+            photos={props.myInfo.images}
+            openPhotoDetail={props.openPhotoDetail}
+          />
         )}
       </div>
     </div>
+
     {props.isShowFollowers && (
       <UserList title="Followers" closeLikes={props.closeFollowers} />
     )}
     {props.isShowFollowings && (
       <UserList title="Follwings" closeLikes={props.closeFollowings} />
     )}
+    {props.isShowPhotoDetail && (
+      <RenderFeedDetail
+        closePhotoDetail={props.closePhotoDetail}
+        photoId={props.photoId}
+      />
+    )}
   </>
 );
 
 const RenderPhotoDisplay = props =>
-  props.photos.map(photo => <PhotoDisplay photo={photo} key={photo.id} />);
+  props.photos.map(photo => (
+    <PhotoDisplay
+      photo={photo}
+      key={photo.id}
+      openPhotoDetail={props.openPhotoDetail}
+    />
+  ));
 
 const LoadingProfile = props => (
   <div className="profile_loading">
     <Loading />
   </div>
+);
+
+const RenderFeedDetail = props => (
+  <PhotoDetail
+    closePhotoDetail={props.closePhotoDetail}
+    photoId={props.photoId}
+  />
 );
 export default Profile;

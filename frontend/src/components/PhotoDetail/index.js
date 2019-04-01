@@ -6,18 +6,21 @@ const mapStateToProps = (state, ownProps) => {
   const {
     photos: { currentPostId, feed }
   } = state;
+  const { closePhotoDetail } = ownProps;
 
   const selectedFeed = feed.filter(photo => photo.id === currentPostId);
-  console.log("mapStateToProps");
+  console.log(selectedFeed);
 
   return {
-    selectedFeed
+    selectedFeed,
+    closePhotoDetail
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log("mapStateToProps", ownProps);
   return {
-    getFeedDetail: () => {
+    getPhotoDetail: () => {
       dispatch(photoActions.getFeedDetail(ownProps.photoId));
     }
   };

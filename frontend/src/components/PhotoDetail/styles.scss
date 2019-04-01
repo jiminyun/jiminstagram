@@ -19,18 +19,19 @@
     margin: 20px;
     padding: 10px;
     border-radius: 20px;
+    cursor: pointer;
   }
   .box {
     display: flex;
-    margin-left: 10px;
+    //margin-left: 10px;
 
     width: 100%;
     height: auto;
-    max-width: $max-page-width;
+    max-width: 900px;
     .column {
       width: 100%;
       .img {
-        height: 450px;
+        max-height: 450px;
       }
       .content {
         background-color: white;
@@ -38,6 +39,7 @@
         min-width: 304px;
         padding: 20px;
         display: block;
+        min-height: 450px;
         .first_row {
           display: flex;
           justify-content: space-around;

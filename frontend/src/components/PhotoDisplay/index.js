@@ -2,9 +2,10 @@ import { connect } from "react-redux";
 import Container from "./container";
 
 const mapStateToProps = (state, ownProps) => {
-  const { photo } = ownProps;
+  const { photo, openPhotoDetail } = ownProps;
   return {
-    photo
+    photo,
+    openPhotoDetail
   };
 };
 

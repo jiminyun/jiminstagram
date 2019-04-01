@@ -4,7 +4,8 @@ import Search from "./presenter";
 
 class Container extends Component {
   state = {
-    loading: true
+    loading: true,
+    isShowPhotoDetail: false
   };
   static propTypes = {
     searchByTerm: PropTypes.func.isRequired,
@@ -33,8 +34,28 @@ class Container extends Component {
   }
   render() {
     const { userList, imageList } = this.props;
-    return <Search {...this.state} userList={userList} imageList={imageList} />;
+    return (
+      <Search
+        {...this.state}
+        userList={userList}
+        imageList={imageList}
+        openPhotoDetail={this._openPhotoDetail}
+        closePhotoDetail={this._closePhotoDetail}
+      />
+    );
   }
+
+  _openPhotoDetail = photoId => {
+    this.setState({
+      isShowPhotoDetail: true,
+      photoId
+    });
+  };
+  _closePhotoDetail = () => {
+    this.setState({
+      isShowPhotoDetail: false
+    });
+  };
 }
 
 export default Container;

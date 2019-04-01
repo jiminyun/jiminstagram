@@ -6,11 +6,17 @@ import PhotoComments from "components/PhotoComments";
 import TimeStamp from "components/TimeStamp";
 import CommentBox from "components/CommentBox";
 
-const FeedDeatil = props => {
+const PhotoDeatil = props => {
   if (props.loading) {
     return <LoadingFeed />;
-  } else if (props.selectedFeed) {
-    return <RenderFeedDeatil {...props} />;
+  } else {
+    console.log(props);
+    return (
+      <RenderFeedDeatil
+        selectedFeed={props.selectedFeed}
+        closePhotoDetail={props.closePhotoDetail}
+      />
+    );
   }
 };
 
@@ -22,11 +28,11 @@ const LoadingFeed = props => (
 
 const RenderFeedDeatil = props => (
   <div className="feed_dt_container">
+    <div className="closeBtn" onClick={props.closePhotoDetail}>
+      <span>close X</span>
+    </div>
     {props.selectedFeed.map(feed => (
       <div key={feed.id}>
-        <div className="closeBtn" onClick={props.closeFeedDetail}>
-          <span>close X</span>
-        </div>
         <div className="box">
           <div className="column">
             <div className="img">
@@ -83,4 +89,4 @@ const RenderFeedDeatil = props => (
   </div>
 );
 
-export default FeedDeatil;
+export default PhotoDeatil;

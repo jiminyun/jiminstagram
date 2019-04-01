@@ -24,12 +24,13 @@
       display: block;
       font-weight: 600;
     }
-    .content {
-      display: flex;
-
-      //alin-content: center;
-
-      //flex-wrap: wrap;
+    .photo-grid {
+      //border: 1px solid red;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1.5em;
+      width: $max-page-width;
     }
   }
 }
