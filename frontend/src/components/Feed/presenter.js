@@ -18,14 +18,26 @@ const LoadingFeed = props => (
   </div>
 );
 
-const RenderFeed = props => (
-  <div className="feed">
-    {props.feed.map(photo => (
-      <FeedPhoto {...photo} key={photo.id} />
-    ))}
-  </div>
-);
-
+const RenderFeed = props => {
+  return (
+    <div className="feed">
+      {props.feed.length === 0 ? (
+        <div>
+          <div class="balloon">
+            You have no followers and no followings. <br />
+            Start Instagram with posting photos and adding followers on
+            explore!!!
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+      {props.feed.map(photo => (
+        <FeedPhoto {...photo} key={photo.id} />
+      ))}
+    </div>
+  );
+};
 Feed.propTypes = {
   loading: PropTypes.bool.isRequired,
   feed: PropTypes.array

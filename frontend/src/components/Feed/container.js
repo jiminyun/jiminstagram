@@ -29,6 +29,7 @@ class Container extends Component {
   };
   render() {
     const { feed } = this.props;
+    // console.log(_.isEmpty(feed));
     return <Feed {...this.state} feed={feed} />;
   }
 }
