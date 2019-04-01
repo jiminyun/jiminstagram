@@ -23,10 +23,14 @@
         border: 1px solid #b2b2b2;
       }
     }
+    .has-error {
+      border: 1px solid red;
+    }
   }
+
   .button {
     @include blueButton();
-    svg  {
+    svg {
       margin-right: 10px;
     }
   }
@@ -74,19 +78,19 @@
   }
 }
 .signupHeader {
-     font-size: 17px;
-     color: $dark-grey;
-     font-weight: 600;
-     margin-bottom: 20px;
-   }
-   .terms {
-     width: 80%;
-     margin: 0 auto;
-     margin-top: 20px;
-     line-height: 20px;
-     color: $dark-grey;
-     span {
-       font-weight: 600;
-       cursor: pointer;
-     }
-   }
+  font-size: 17px;
+  color: $dark-grey;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.terms {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  line-height: 20px;
+  color: $dark-grey;
+  span {
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
