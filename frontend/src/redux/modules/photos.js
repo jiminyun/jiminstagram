@@ -54,13 +54,6 @@ function setFeedDetail(feedDetail) {
   };
 }
 
-function addPhoto(newPhoto) {
-  return {
-    type: ADD_PHOTO,
-    newPhoto
-  };
-}
-
 // api actions
 
 function getFeed() {
@@ -193,8 +186,12 @@ function saveFeed(photoObj, history) {
         if (response.status === 401) {
           dispatch(userActions.logout());
         }
-        history.push("/");
+        if (response.ok) {
+          window.location.href = "/";
+          //history.push("/");
+        }
       })
+      //.then((json) => dispatch(getFeed()))
       .catch(err => console.log("error", err));
   };
 }

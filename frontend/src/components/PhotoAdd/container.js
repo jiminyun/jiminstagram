@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import PhotoAdd from "./presenter";
+import { push } from "react-router-dom";
 
 class Container extends Component {
   state = {
@@ -10,6 +11,7 @@ class Container extends Component {
     file: ""
   };
 
+  componentDidUpdate() {}
   render() {
     return (
       <PhotoAdd
@@ -35,17 +37,16 @@ class Container extends Component {
     };
   };
 
-  _handleSubmit = ev => {
+  _handleSubmit = async ev => {
     ev.preventDefault();
-    const { saveFeed } = this.props;
+    const { saveFeed, history } = this.props;
     const { file, location, caption, tags } = this.state;
 
     if (!file || !location || !caption || !tags) {
       alert("please fill out all of inputs");
       return false;
     }
-    saveFeed(this.state);
-    window.location.href = "/";
+    await saveFeed(this.state);
   };
 
   _handleInputChange = ev => {
