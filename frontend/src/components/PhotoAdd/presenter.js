@@ -10,13 +10,16 @@ const PhotoAdd = props => (
           {props.preview && (
             <img className="previewPhoto" src={props.preview} alt="preview" />
           )}
-          <input
-            id="preview"
-            type="file"
-            name="file"
-            className="previewFile"
-            onChange={props.handlePreview}
-          />
+          <div class="upload-btn-wrapper">
+            <button class="btn">Upload a file</button>
+            <input
+              id="preview"
+              type="file"
+              name="file"
+              className="previewFile"
+              onChange={props.handlePreview}
+            />
+          </div>
         </div>
       </div>
 

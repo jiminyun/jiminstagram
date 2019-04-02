@@ -32,14 +32,12 @@ const RenderFeedDeatil = props => (
       <span>close X</span>
     </div>
     {props.selectedFeed.map(feed => (
-      <div key={feed.id}>
-        <div className="box">
-          <div className="column">
-            <div className="img">
-              <img src={feed.file} alt="feedImage" />
-            </div>
+      <div className="box" key={feed.id}>
+        <div className="row">
+          <div className="column-left">
+            <img src={feed.file} alt="feedImage" className="feedImage" />
           </div>
-          <div className="column">
+          <div className="column-right">
             <div className="content">
               <div className="first_row">
                 <img

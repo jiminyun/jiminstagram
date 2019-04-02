@@ -20,9 +20,8 @@ class Container extends Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount");
-    const { getMyProfile } = this.props;
-    getMyProfile();
+    const { getMyProfile, username } = this.props;
+    getMyProfile(username);
   }
 
   componentWillReceiveProps = nextProps => {

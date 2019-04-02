@@ -4,15 +4,15 @@ import { actionCreators as userActions } from "redux/modules/user";
 
 const mapStateToProps = (state, ownProps) => {
   const {
-    user: { myInfo }
+    user: { myInfo, username }
   } = state;
-  return { myInfo };
+  return { myInfo, username };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getMyProfile: () => {
-      dispatch(userActions.getMyProfile());
+    getMyProfile: username => {
+      dispatch(userActions.getMyProfile(username));
     },
     upateMyProfile: (name, username, website, bio, email, gender) => {
       dispatch(

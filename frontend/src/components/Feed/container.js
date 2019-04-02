@@ -12,13 +12,7 @@ class Container extends Component {
   };
   componentDidMount() {
     const { getData } = this.props;
-    if (!this.props.feed) {
-      getData();
-    } else {
-      this.setState({
-        loading: false
-      });
-    }
+    getData();
   }
   componentWillReceiveProps = nextProps => {
     if (nextProps.feed) {

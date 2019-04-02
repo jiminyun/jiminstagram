@@ -25,10 +25,16 @@ const RenderEditProfile = props => (
           <div className="field">
             <aside className="title">
               <label>
-                <img src={props.profile_image} alt="profile_img" />
+                <img
+                  src={
+                    props.profile_image
+                      ? props.profile_image
+                      : require("images/noProfile.jpg")
+                  }
+                  alt="profile_img"
+                />
               </label>
             </aside>
-            <div className="inputs">Change Profile Photo</div>
           </div>
           <div className="field">
             <aside className="title">
