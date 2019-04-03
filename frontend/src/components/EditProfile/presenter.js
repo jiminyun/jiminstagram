@@ -111,7 +111,7 @@ const RenderEditProfile = props => (
               />
             </div>
           </div>
-
+          <span class="success"> {props.success ? props.success : ""}</span>
           <div className="field">
             <input type="submit" value="submit" className="btn" />
           </div>

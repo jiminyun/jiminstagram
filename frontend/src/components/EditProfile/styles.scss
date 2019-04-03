@@ -12,7 +12,11 @@
     max-width: $max-page-width;
     background-color: white;
     display: flex;
-
+    .success {
+      display: flex;
+      justify-content: center;
+      color: green;
+    }
     .fisrtColumn {
       width: 30%;
       display: flex;

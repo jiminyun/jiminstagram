@@ -353,7 +353,7 @@ function updateMyProfile(name, username, website, bio, email, gender) {
       })
       .then(json => {
         dispatch(saveMyProfile(json));
-        dispatch(getReultMsg("Profile saved succesfully!"));
+        dispatch(getReultMsg({ success: "Profile saved succesfully!" }));
       })
       .catch(err => console.log(err));
   };
