@@ -43,7 +43,7 @@ const RenderEditProfile = props => (
             <div className="inputs">
               <input
                 type="text"
-                placeholder=""
+                placeholder="Sherry Lalala"
                 name="name"
                 className="input"
                 value={props.name}
@@ -111,7 +111,7 @@ const RenderEditProfile = props => (
               />
             </div>
           </div>
-          <span class="success"> {props.success ? props.success : ""}</span>
+          <span className="success"> {props.success ? props.success : ""}</span>
           <div className="field">
             <input type="submit" value="submit" className="btn" />
           </div>

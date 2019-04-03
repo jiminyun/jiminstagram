@@ -103,6 +103,10 @@ class Container extends Component {
       this.setState({
         IsME: true
       });
+    } else {
+      this.setState({
+        IsME: false
+      });
     }
   };
 

@@ -19,6 +19,7 @@ class Container extends Component {
         handlePreview={this._handlePreview}
         handleSubmit={this._handleSubmit}
         handleInputChange={this._handleInputChange}
+        success={this.props.success}
       />
     );
   }

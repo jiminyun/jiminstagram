@@ -2,6 +2,15 @@ import { connect } from "react-redux";
 import { actionCreators as photoActions } from "redux/modules/photos";
 import Container from "./container";
 import { withRouter } from "react-router-dom";
+const mapStateToProps = (state, ownProps) => {
+  const {
+    msg: { success }
+  } = state;
+
+  return {
+    success
+  };
+};
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   //console.log(ownProps.history);
@@ -13,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Container)
 );

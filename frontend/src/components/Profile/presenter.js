@@ -44,7 +44,7 @@ const RenderProfile = props => (
           <span className="count">{props.myInfo.post_count}</span>
           <span className="text">posts</span>
           <span className="count" onClick={props.seeFollowers}>
-            {props.myInfo.following_count}
+            0{props.myInfo.follower_count}
           </span>
           <span className="text">followers</span>
           <span className="count" onClick={props.seeFollowings}>

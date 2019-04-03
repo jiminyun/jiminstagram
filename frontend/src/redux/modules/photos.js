@@ -1,6 +1,7 @@
 // imports
 import { actionCreators as userActions } from "redux/modules/user";
 import uuidv1 from "uuid/v1";
+import { GET_RESULT_MSG } from "./msg";
 // actions
 
 const SET_FEED = "SET_FEED";
@@ -19,13 +20,13 @@ function addComment(photoId, comment) {
   };
 }
 
-function deleteComment(photoId, messageId) {
+const getReultMsg = result => {
   return {
-    type: DELETE_COMMENT,
-    photoId,
-    messageId
+    type: GET_RESULT_MSG,
+    result
   };
-}
+};
+
 function setFeed(feed) {
   return {
     type: SET_FEED,
@@ -187,8 +188,7 @@ function saveFeed(photoObj, history) {
           dispatch(userActions.logout());
         }
         if (response.ok) {
-          window.location.href = "/";
-          //history.push("/");
+          dispatch(getReultMsg({ success: "A photo saved succesfully!" }));
         }
       })
       //.then((json) => dispatch(getFeed()))
