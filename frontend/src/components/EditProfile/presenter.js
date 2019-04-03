@@ -26,12 +26,12 @@ const RenderEditProfile = props => (
             <aside className="title">
               <label>
                 <img
+                  alt="profile_img"
                   src={
                     props.profile_image
                       ? props.profile_image
                       : require("images/noProfile.jpg")
                   }
-                  alt="profile_img"
                 />
               </label>
             </aside>
@@ -43,7 +43,7 @@ const RenderEditProfile = props => (
             <div className="inputs">
               <input
                 type="text"
-                placeholder="name"
+                placeholder=""
                 name="name"
                 className="input"
                 value={props.name}
@@ -125,8 +125,8 @@ EditProfile.propTypes = {
   loading: propTypes.bool.isRequired,
   name: propTypes.string.isRequired,
   username: propTypes.string.isRequired,
-  website: propTypes.string.isRequired,
-  bio: propTypes.string.isRequired,
+  //website: propTypes.string.isRequired,
+  //bio: propTypes.string.isRequired,
   email: propTypes.string.isRequired
 };
 

@@ -42,7 +42,11 @@ const RenderFeedDeatil = props => (
               <div className="first_row">
                 <img
                   className="profileImg"
-                  src={feed.creator.profile_image}
+                  src={
+                    feed.creator.profile_image
+                      ? feed.creator.profile_image
+                      : require("images/noProfile.jpg")
+                  }
                   alt="profileImg"
                 />
                 <p className="username">

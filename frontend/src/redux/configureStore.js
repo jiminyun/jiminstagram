@@ -7,6 +7,7 @@ import thunk from "redux-thunk";
 import user from "redux/modules/user";
 import photos from "redux/modules/photos";
 import notification from "redux/modules/notification";
+import msg from "redux/modules/msg";
 
 const env = process.env.NODE_ENV;
 
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   photos,
   notification,
   routing: routerReducer,
-  i18nState
+  i18nState,
+  msg
 });
 
 let store;

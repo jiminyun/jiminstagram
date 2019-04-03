@@ -1,6 +1,6 @@
 // imports
 import { actionCreators as notiActions } from "redux/modules/notification";
-
+import { GET_RESULT_MSG } from "./msg";
 // actions
 
 const SAVE_TOKEN = "SAVE_TOKEN";
@@ -84,6 +84,13 @@ function setFollowings(userList) {
     userList
   };
 }
+
+const getReultMsg = result => {
+  return {
+    type: GET_RESULT_MSG,
+    result
+  };
+};
 
 // API actions
 // when requesting the change of states to Store, call dispatch with action creator
@@ -346,6 +353,7 @@ function updateMyProfile(name, username, website, bio, email, gender) {
       })
       .then(json => {
         dispatch(saveMyProfile(json));
+        dispatch(getReultMsg("Profile saved succesfully!"));
       })
       .catch(err => console.log(err));
   };
