@@ -54,7 +54,7 @@ const PhotoAdd = props => (
           value={props.tags}
         />
       </div>
-      <span className="success"> {props.success ? props.success : ""}</span>
+      <span className="success"> {props.photoSave ? props.photoSave : ""}</span>
       <div className="row">
         <button type="submit" className="button">
           Upload Photo

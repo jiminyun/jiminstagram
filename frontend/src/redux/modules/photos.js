@@ -188,7 +188,7 @@ function saveFeed(photoObj, history) {
           dispatch(userActions.logout());
         }
         if (response.ok) {
-          dispatch(getReultMsg({ success: "A photo saved succesfully!" }));
+          dispatch(getReultMsg({ photoSave: "A photo saved succesfully!" }));
         }
       })
       //.then((json) => dispatch(getFeed()))

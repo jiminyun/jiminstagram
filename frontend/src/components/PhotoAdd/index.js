@@ -4,11 +4,11 @@ import Container from "./container";
 import { withRouter } from "react-router-dom";
 const mapStateToProps = (state, ownProps) => {
   const {
-    msg: { success }
+    msg: { photoSave }
   } = state;
 
   return {
-    success
+    photoSave
   };
 };
 

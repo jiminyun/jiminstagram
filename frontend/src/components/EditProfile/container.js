@@ -75,7 +75,7 @@ class Container extends Component {
         handleInputChange={this._handleInputChange}
         handleSubmit={this._handleSubmit}
         handleNameChange={this._handleNameChange}
-        success={this.props.success}
+        profileSave={this.props.profileSave}
       />
     );
   }

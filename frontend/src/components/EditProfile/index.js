@@ -7,9 +7,9 @@ const mapStateToProps = (state, ownProps) => {
     user: { myInfo, username }
   } = state;
   const {
-    msg: { success }
+    msg: { profileSave }
   } = state;
-  return { myInfo, username, success };
+  return { myInfo, username, profileSave };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
