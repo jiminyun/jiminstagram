@@ -1,7 +1,6 @@
 import React from "react";
-import styles from "./styles.scss";
 
- const Footer = (props, context) => (
+const Footer = (props, context) => (
   <footer className="footer">
     <div className="column">
       <nav className="nav">
@@ -23,7 +22,7 @@ import styles from "./styles.scss";
     </div>
   </footer>
 );
- export default Footer;
+export default Footer;
 
 /* 
  <footer className="footer">

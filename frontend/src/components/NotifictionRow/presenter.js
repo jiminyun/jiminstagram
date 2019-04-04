@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import BtnFollow from "components/BtnFollow";
 import "./styles.scss";
 
 const UserRow = (props, context) => {

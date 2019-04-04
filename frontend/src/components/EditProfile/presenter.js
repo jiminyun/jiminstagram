@@ -43,7 +43,7 @@ const RenderEditProfile = props => (
             <div className="inputs">
               <input
                 type="text"
-                placeholder="Sherry Lalala"
+                placeholder=""
                 name="name"
                 className="input"
                 value={props.name}

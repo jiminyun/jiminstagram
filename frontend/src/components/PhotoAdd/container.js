@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import PhotoAdd from "./presenter";
-import { push } from "react-router-dom";
 
 class Container extends Component {
   state = {
@@ -40,7 +39,7 @@ class Container extends Component {
 
   _handleSubmit = async ev => {
     ev.preventDefault();
-    const { saveFeed, history } = this.props;
+    const { saveFeed } = this.props;
     const { file, location, caption, tags } = this.state;
 
     if (!file || !location || !caption || !tags) {

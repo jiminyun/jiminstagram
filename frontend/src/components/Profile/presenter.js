@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Loading from "components/Loading";
 import PhotoDisplay from "components/PhotoDisplay";
