@@ -9,8 +9,6 @@ Cloning Instagram with Python Django and React
   - React(JSX, Redux, Ducks, Redux-thunk)
   - Scss, CSS-Module
   - Webpack
-  - NodeJS
-  - Yarn
 - Backend
   - Python, pipenv
   - Django(Django, Django-REST-Framework, Django-REST-auth, Cookiecutter Django)
@@ -30,7 +28,9 @@ cd frontend
 yarn start
 ```
 
-## Demo https://www.youtube.com/watch?v=lD-jtnAyJI8
+## Demo
+
+https://www.youtube.com/watch?v=lD-jtnAyJI8
 
 [![Watch the video](https://img.youtube.com/vi/lD-jtnAyJI8/maxresdefault.jpg)](https://youtu.be/lD-jtnAyJI8)
 
@@ -50,7 +50,7 @@ yarn start
 
 ## Additional Functionality
 
-JWT token + Social Auth
-REST API
-Redux-thunk
-Responsive mixin
+- JWT token + Social Auth
+- REST API
+- Redux-thunk
+- Responsive mixin
