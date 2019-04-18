@@ -7,11 +7,11 @@ Cloning Instagram with Python Django and React
 - Frontend
   - JavaScript(ES6+)
   - React(JSX, Redux, Ducks, Redux-thunk)
-  - Scss, CSS-Module
+  - Scss
   - Webpack
 - Backend
   - Python, pipenv
-  - Django(Django, Django-REST-Framework, Django-REST-auth, Cookiecutter Django)
+  - Django(Django-REST-Framework, Django-REST-auth, Cookiecutter Django)
   - PostgreSQL
 
 ## Getting Started
